@@ -1,13 +1,13 @@
-# Reanalysis of Cocaine-Induced Transcriptional Changes in SST Interneurons of the Nucleus Accumbens Using recount3 and limma-voom
+## Reanalysis of Cocaine-Induced Transcriptional Changes in SST Interneurons of the Nucleus Accumbens Using recount3 and limma-voom
 
-## Introduction
+### Introduction
 Cocaine exposure induces rapid molecular and cellular changes in brain regions involved in reward processing. The nucleus accumbens (NAc) is a central component of the mesolimbic dopaminergic pathway and plays a major role in reinforcement and addiction-related behaviors.
 
 The original study (Nature Communications, 2018; DOI: s41467-018-05657-9) investigated transcriptional responses to acute cocaine administration in specific neuronal subpopulations of the NAc. In particular, the authors focused on somatostatin-expressing (SST) interneurons and reported activation of immediate-early genes and transcriptional programs associated with synaptic plasticity one hour after cocaine exposure.
 
 The goal of this work was to reanalyze the RNA-seq dataset (SRP151726) using a standardized workflow based on recount3 and limma-voom, in order to evaluate whether the reported transcriptional changes can be reproduced under a conventional differential expression framework.
 
-## Data Origin
+### Data Origin
 - Study accession: SRP151726
 - Organism: Mus musculus
 - Tissue: Nucleus accumbens
@@ -19,7 +19,7 @@ The goal of this work was to reanalyze the RNA-seq dataset (SRP151726) using a s
 
 Gene-level counts were obtained through recount3, converted to a RangedSummarizedExperiment object and processed for downstream analysis.
 
-## Methods Overview
+### Methods Overview
 1. Gene filtering based on minimum expression.
 2. Library size normalization.
 3. Mean-variance modeling using voom.
@@ -27,7 +27,7 @@ Gene-level counts were obtained through recount3, converted to a RangedSummarize
 5. Contrast: cocaine vs saline.
 6. Multiple testing correction using Benjamini–Hochberg FDR.
 
-## Results
+### Results
 
 ### Quality Control
 
@@ -64,7 +64,7 @@ The correlation heatmap showed high overall similarity between samples (correlat
 At the global transcriptome level, cocaine-treated samples are highly similar to controls.
 
 
-### voom Mean–Variance Modeling
+#### voom Mean–Variance Modeling
 
 The voom mean–variance trend displayed the expected inverse relationship between expression level and variance. Low-expression genes showed higher variability, which stabilized at higher expression levels.
 
@@ -138,7 +138,7 @@ Even among the most nominally significant genes, samples do not cluster cleanly 
 ![heatmap_top50.png](../plots/heatmap_top50.png)
 
 
-## Biological Interpretation 
+### Biological Interpretation 
 The results obtained in the original study described a rapid transcriptional response in SST interneurons one hour after cocaine administration, highlighting activation of immediate early genes and pathways related to synaptic plasticity. In this reanalysis, however, there was no detection of  statistically significant genes after correcting for multiple testing, the exploratory analyses (PCA and MDS) did not show a clear separation between saline and cocaine samples and, at a global level, the transcriptomes of both groups appear very similar.
 
 There are several possible reasons for this difference; first, the biological effect at one hour may be subtle rather than large-scale, as mentioned in the article, cocaine can trigger rapid signaling cascades, but those early responses may involve only a small number of genes or modest changes in expression that are difficult to detect with standard differential expression models.
@@ -149,7 +149,7 @@ Lastly, acute exposure at a single time point may not capture the full transcrip
 
 I think it is important to mention that the absence of statistically significant genes does not mean that cocaine has no biological effect, rather, under a conservative limma-voom framework with multiple testing correction, if  any transcriptional effects are present, they are modest in magnitude at the genome-wide level.
 
-## Conclusion
+### Conclusion
 In this independent reanalysis of SRP151726 using recount3 and limma-voom, no genes remained significant after false discovery rate correction. Multiple lines of evidence—including global expression distributions, PCA, MDS, MA plots and volcano plots, suggest that acute cocaine exposure (1 hour post-injection) does not produce strong, transcriptome-wide shifts in SST interneurons under this analytical framework.
 
 These results demostrate how conclusions in transcriptomics can depend on statistical modeling choices, even when biological effects are expected, it is essential to evaluate their magnitude carefully and interpret statistical results taking into consideration the general experimental context.

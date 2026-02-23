@@ -44,7 +44,7 @@ RNA_seq_project/
 │   └── Report_reanalysis.md
 ├── README.md
 └── template_project/
-
+```
 
 ## Report
 The full analysis and interpretation are available here:
