@@ -15,7 +15,6 @@
 
 The data were accessed through the **recount3** resource, which provides processed RNA-seq gene-level expression summaries.
 
----
 ## Analysis Overview
 The workflow includes:
 
@@ -28,31 +27,26 @@ The workflow includes:
 7. Differential expression testing
 
 
-## Repository structure 
-
+## Repository structure
 This repository follows the folder structure from `LieberInstitute/template_project`.
 
+```text
 RNA_seq_project/
-│
 ├── code/
 │   ├── 01_download_recount3/
 │   ├── 02_prepare_metadata/
 │   └── 03_differential_expression/
-│
 ├── output/
 │   ├── rse/
 │   └── tables/
-
 ├── plots/
-│
 ├── Reports/
 │   └── Report_reanalysis.md
 ├── README.md
 └── template_project/
 
----
-## Report
 
+## Report
 The full analysis and interpretation are available here:
 [Report_results.md](Reports/Report_results.md)
 
@@ -61,7 +55,6 @@ Key results:
 [Plots directory](plots/)
 
 ## Reproducibility
-
 To reproduce the analysis:
 1. Open the project in RStudio.
 2. Run scripts sequentially:
@@ -72,11 +65,9 @@ To reproduce the analysis:
 All tables are saved under [output/](output/) and all figures under [plots/](plots/)
 
 ## References
-
 This project follows the workflow developed by Dr. Leonardo Collado-Torres and uses the recount3 resource for gene-level RNA-seq summaries.
 
 **Software and Resources**
-
 > Collado-Torres L (2023). Explore and download data from the recount3 project.Bioconductor package recount3, version 1.8.0. https://doi.org/10.18129/B9.bioc.recount3 https://github.com/LieberInstitute/recount3
 
 > Wilks C, Zheng SC, Chen FY, et al. (2021).recount3: summaries and queries for large-scale RNA-seq expression and splicing. Genome Biology, 22, 323. https://doi.org/10.1186/s13059-021-02533-6
